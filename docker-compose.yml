@@ -1,0 +1,49 @@
+version: "3.3"
+volumes:
+    openmaint-db:
+    openmaint-tomcat:
+    pgadmin-data:
+
+services:
+    openmaint_db:
+        image: postgis/postgis:12-3.3-alpine
+        container_name: openmaint_db
+        volumes:
+            - openmaint-db:/var/lib/postgresql/data
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        restart: always
+
+    openmaint_app:
+        image: elonesampaio/openmaint-om-2.3-3.4.1:latest #openmaint_local:latest
+        container_name: openmaint_app
+        links:
+           - openmaint_db
+        depends_on:
+           - openmaint_db
+        ports:
+            - "${OPENMAINT_PORT}:8080"
+        restart: always
+        volumes:
+            - openmaint-tomcat:/usr/local/tomcat
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASS: ${POSTGRES_PASSWORD}
+            POSTGRES_PORT: ${POSTGRES_PORT}
+            POSTGRES_HOST: ${POSTGRES_HOST}
+            POSTGRES_DB: ${POSTGRES_DB}
+            JAVA_OPTS: ${JAVA_OPTS}
+            CMDBUILD_DUMP: ${CMDBUILD_DUMP}
+
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: pgadmin
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+        ports:
+            - "${PGADMIN_PORT}:80"
+        volumes:
+            - pgadmin-data:/var/lib/pgadmin
+        restart: always
