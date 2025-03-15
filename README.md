@@ -3,7 +3,7 @@
 Este repositório contém um ambiente Docker Compose para rodar o OpenMaint, uma solução de gerenciamento de ativos e manutenção baseada no CMDBuild. O ambiente inclui:
 
 - **OpenMaint:** Aplicação principal para gerenciamento de ativos e manutenção.
-- **PostgreSQL:** Banco de dados para armazenar os dados do OpenMaint.
+- **Postgis:** Banco de dados para armazenar os dados do OpenMaint.
 - **pgAdmin:** Interface gráfica para gerenciamento do banco de dados PostgreSQL.
 
 ## Pré-requisitos
@@ -159,6 +159,17 @@ Abra o navegador e acesse:
 
 - http://localhost:8090/cmdbuild
 
+# Links Úteis
+- [OpenMaint](https://www.openmaint.org/)
+- [CMDBuild](https://www.cmdbuild.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [pgAdmin](https://www.pgadmin.org/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [PostGIS](https://postgis.net/)
+- [Docker Hub](https://hub.docker.com/)
+- [SourceForge](https://sourceforge.net/projects/openmaint/files/2.3/openmaint-2.3-3.4.1-d.war/)
+- [OpenMaint Docker](https://hub.docker.com/r/elonesampaio/openmaint-om-2.3-3.4.1)
 
 # Contribuição
 Se você encontrar problemas ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
