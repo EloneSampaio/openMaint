@@ -3,7 +3,7 @@
 Este repositório contém um ambiente Docker Compose para rodar o OpenMaint, uma solução de gerenciamento de ativos e manutenção baseada no CMDBuild. O ambiente inclui:
 
 - **OpenMaint:** Aplicação principal para gerenciamento de ativos e manutenção.
-- **Postgis:** Banco de dados para armazenar os dados do OpenMaint.
+- **Postgis:** Extensão do postgresql para operações com dados espacias.
 - **pgAdmin:** Interface gráfica para gerenciamento do banco de dados PostgreSQL.
 
 ## Pré-requisitos
